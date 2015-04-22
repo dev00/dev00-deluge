@@ -1,0 +1,14 @@
+{
+  "name": "dev00-deluge",
+  "version": "0.0.1",
+  "author": "dev00",
+  "summary": "Allows you to install and manage deluge with or without GUI",
+  "license": "Apache 2.0",
+  "source": "https://github.com/dev00/deluge",
+  "project_page": "https://github.com/dev00/deluge",
+  "issues_url": "https://github.com/dev00/deluge/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
