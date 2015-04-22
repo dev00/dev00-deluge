@@ -68,7 +68,6 @@ class dev00-deluge::server (
 	$allow_remote			=	true,
 	$deluged_user			= 	[
 									'localclient:i1t4xrxubtxxpd43cglnzjnn9ymyk5l0nczgdoxf:10',
-									'hans:peter:10'
 								],
 	$thinclient_port		=	58846,
 	$thinclient_interface	=	'',
