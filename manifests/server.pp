@@ -67,11 +67,7 @@ class dev00-deluge::server (
 	$manage_by_puppet		=	true,
 	$allow_remote			=	true,
 	$deluged_user			= 	[
-<<<<<<< HEAD
 									'test:user:10',
-=======
-									'localclient:i1t4xrxubtxxpd43cglnzjnn9ymyk5l0nczgdoxf:10',
->>>>>>> origin/master
 								],
 	$thinclient_port		=	58846,
 	$thinclient_interface	=	'',
