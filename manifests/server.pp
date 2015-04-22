@@ -14,7 +14,7 @@
 # allow_remote				=	if remote connections (like GTK-UI or external webinterfaces) can connect. default is 'true'
 # deluged_user				=	array of users and their password for deluged. Must be an array and look like 'user:password:level'
 # 								for information about level please visit http://dev.deluge-torrent.org/wiki/UserGuide/Authentication
-#								default is 'localclient:i1t4xrxubtxxpd43cglnzjnn9ymyk5l0nczgdoxf:10' <-- CHANGE THIS PLEASE!
+#								default is 'test:user:10' <-- CHANGE THIS PLEASE!
 # thinclient_port			=	on which port the daemon should listen for the ThinClients. default is 58846
 # thinclient_interface		=	the IP on which the daemon should listen for the ThinClients. default is empty for all interfaces.
 # random_port				=	if it should randomize the ports used for p2p. default is true
@@ -67,8 +67,7 @@ class dev00-deluge::server (
 	$manage_by_puppet		=	true,
 	$allow_remote			=	true,
 	$deluged_user			= 	[
-									'localclient:i1t4xrxubtxxpd43cglnzjnn9ymyk5l0nczgdoxf:10',
-									'hans:peter:10'
+									'test:user:10',
 								],
 	$thinclient_port		=	58846,
 	$thinclient_interface	=	'',
@@ -82,7 +81,7 @@ class dev00-deluge::server (
 	$outgoing_port_range	=	[
 									'0',
 									'0'
-								],								
+								],
 	$download_location		=	'/var/cache/deluge/downloading',
 	$move_completed 		=	false,
 	$move_completed_path	=	'/var/cache/deluge/completed',
