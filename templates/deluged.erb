@@ -14,6 +14,7 @@
 
 # Author: Adolfo R. Brandes 
 # Updated by: Jean-Philippe "Orax" Roemer
+# Added proper behaviour with states by: Michael "dev00" Rose
 
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 DESC="Deluge Daemon"
@@ -123,7 +124,6 @@ case "$1" in
       2) [ "$VERBOSE" != no ] && log_end_msg 1 ;;
    esac
    ;;
-#START MY MOD
   status)
   if [ -e $PIDFILE ]; then
    status_of_proc -p $PIDFILE $DAEMON "$NAME process" && exit 0 || exit $?
@@ -133,7 +133,6 @@ case "$1" in
    exit 3
   fi
   ;;
-#END MY MOD
   restart|force-reload)
    log_daemon_msg "Restarting $DESC" "$NAME"
    do_stop
