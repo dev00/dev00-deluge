@@ -6,20 +6,20 @@
 # === Parameters
 #
 #
-# manage_by_puppet			= if puppet should keep control over changes to the config-file. This should not be set since it'll cause major disruption
-#							since it'll delete the session information and some more stuff, which is set by the webinterface.
-#							Use it for some kind of "reset" for the web-ui. default is false.
-# port						= on which port the webserver will listen. default is 8112
-# https						= if htts is used or not. or is exclusive. default is false.
-# pkey						= where the pkey-file for the https-encryption is stored. The path is ALWAYS (!) relative to the config-folder.
-#							default is 'ssl/daemon.pkey'
-# cert						= where the cert-file for the https-encryption is stored. The path is ALWAYS (!) relative to the config-folder.
-#							default is 'ssl/daemon.cert'
+# manage_by_puppet	= if puppet should keep control over changes to the config-file. This should not be set since it'll cause major disruption
+#			  since it'll delete the session information and some more stuff, which is set by the webinterface.
+#			  Use it for some kind of "reset" for the web-ui. default is false.
+# port			= on which port the webserver will listen. default is 8112
+# https			= if htts is used or not. or is exclusive. default is false.
+# pkey			= where the pkey-file for the https-encryption is stored. The path is ALWAYS (!) relative to the config-folder.
+#			  default is 'ssl/daemon.pkey'
+# cert			= where the cert-file for the https-encryption is stored. The path is ALWAYS (!) relative to the config-folder.
+#			  default is 'ssl/daemon.cert'
 # === Examples
 #
 #	class { 'dev00-deluge::webinterface':
 #		port 	=> '14000',
-#		https	=>	true,
+#		https	=> true,
 #  	}
 #
 # === Authors
@@ -59,30 +59,30 @@ class dev00-deluge::webinterface(
 
 	file {
 		'/var/lib/deluge/web.conf':
-			ensure			=> present,
-			owner			=> deluge,
-			group 			=> deluge,
-			replace			=> "${manage_by_puppet}",
-			mode 			=> 0644,
-			content			=> template('dev00-deluge/web.conf.erb'),
-			notify			=> Service['deluge-web'],
-			require			=> File['/var/lib/deluge'];
+			ensure		=> present,
+			owner		=> deluge,
+			group 		=> deluge,
+			replace		=> "${manage_by_puppet}",
+			mode 		=> 0644,
+			content		=> template('dev00-deluge/web.conf.erb'),
+			notify		=> Service['deluge-web'],
+			require		=> File['/var/lib/deluge'];
 
 # Cares about the daemon-files
 		'/etc/init.d/deluge-web':
-			ensure			=> present,
-			mode			=> 0700,
-			require 		=> File['/etc/default/deluge-web'],
-			notify			=> Service['deluge-web'],
-			content			=> template('dev00-deluge/deluge-web.erb');
+			ensure		=> present,
+			mode		=> 0700,
+			require 	=> File['/etc/default/deluge-web'],
+			notify		=> Service['deluge-web'],
+			content		=> template('dev00-deluge/deluge-web.erb');
 
 		'/etc/default/deluge-web':
-			ensure			=> present,
-			owner			=> root,
-			group			=> root,
-			mode			=> 0700,
-			notify			=> Service['deluge-web'],
-			content			=> template('dev00-deluge/default_deluge_daemon.erb');
+			ensure		=> present,
+			owner		=> root,
+			group		=> root,
+			mode		=> 0700,
+			notify		=> Service['deluge-web'],
+			content		=> template('dev00-deluge/default_deluge_daemon.erb');
 
 	}
 }
