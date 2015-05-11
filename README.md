@@ -15,12 +15,20 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
-
+A module for managing deluged and/or deluge-web, running as service. 
+At the moment it's running on debian, probably also on Ubuntu (or anything else
+init.d)
+ 
 ## Module Description
 
+
+The module cares about the installation of deluged and/or deluge-web. 
+Configuation of both is also supported, but in case of deluge-web it not may
+not be a good idea beause of several internal processes of deluge-web like
+writing session information to the puppet-managed configuration file.
+
+A variable for that (manage_by_puppet) will take care of that and leave it up
+to you.
 If applicable, this section should have a brief description of the technology
 the module integrates with and what that integration enables. This section
 should answer the questions: "What does this module *do*?" and "Why would I use

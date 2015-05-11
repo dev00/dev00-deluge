@@ -6,21 +6,21 @@
 # === Parameters
 #
 #
-# manage_by_puppet			=	if puppet should keep control over changes to the config-file. This should not be set since it'll cause major disruption
-#								since it'll delete the session information and some more stuff, which is set by the webinterface.
-#								Use it for some kind of "reset" for the web-ui. default is false.
-# port						=	on which port the webserver will listen. default is 8112
-# https						=	if htts is used or not. or is exclusive. default is false.
-# pkey						=	where the pkey-file for the https-encryption is stored. The path is ALWAYS (!) relative to the config-folder.
-#								default is 'ssl/daemon.pkey'
-# cert						=	where the cert-file for the https-encryption is stored. The path is ALWAYS (!) relative to the config-folder.
-#								default is 'ssl/daemon.cert'
+# manage_by_puppet			= if puppet should keep control over changes to the config-file. This should not be set since it'll cause major disruption
+#							since it'll delete the session information and some more stuff, which is set by the webinterface.
+#							Use it for some kind of "reset" for the web-ui. default is false.
+# port						= on which port the webserver will listen. default is 8112
+# https						= if htts is used or not. or is exclusive. default is false.
+# pkey						= where the pkey-file for the https-encryption is stored. The path is ALWAYS (!) relative to the config-folder.
+#							default is 'ssl/daemon.pkey'
+# cert						= where the cert-file for the https-encryption is stored. The path is ALWAYS (!) relative to the config-folder.
+#							default is 'ssl/daemon.cert'
 # === Examples
 #
 #	class { 'dev00-deluge::webinterface':
 #		port 	=> '14000',
 #		https	=>	true,
-#  }
+#  	}
 #
 # === Authors
 #
@@ -32,11 +32,11 @@
 #
 
 class dev00-deluge::webinterface(
-	$port				=	8112,	
-	$https				=	true,
-	$pkey				=	'ssl/daemon.pkey',
-	$cert				=	'ssl/daemon.cert',
-	$manage_by_puppet	=	false,
+	$port			= 8112,	
+	$https			= true,
+	$pkey			= 'ssl/daemon.pkey',
+	$cert			= 'ssl/daemon.cert',
+	$manage_by_puppet	= false,
 )
 
 {
@@ -47,8 +47,8 @@ class dev00-deluge::webinterface(
 	}
 
 	service { 'deluge-web':
-		ensure      => running,
-		require		=>  Package['deluge-web'];
+		ensure	=> running,
+		require	=> Package['deluge-web'];
 	}
 
 	transition { 'stop deluge-web service':
