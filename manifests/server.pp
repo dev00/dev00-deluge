@@ -12,7 +12,7 @@
 #				  work.
 #				  default is true.
 # allow_remote			= if remote connections (like GTK-UI or external webinterfaces) can connect. default is 'true'
-# deluged_user			= array of users and their password for deluged. Must be an array and look like 'user:password:level'
+# deluged_users			= array of users and their password for deluged. Must be an array and look like 'user:password:level'
 # 				  for information about level please visit http://dev.deluge-torrent.org/wiki/UserGuide/Authentication
 #				  default is 'localclient:i1t4xrxubtxxpd43cglnzjnn9ymyk5l0nczgdoxf:10' <-- CHANGE THIS PLEASE!
 # thinclient_port		= on which port the daemon should listen for the ThinClients. default is 58846
@@ -66,7 +66,7 @@
 class dev00-deluge::server (
 	$manage_by_puppet	= true,
 	$allow_remote		= true,
-	$deluged_user		=  [
+	$deluged_users		=  [
 					'hans:peter:10'
 				 ],
 	$thinclient_port	= 58846,
@@ -148,7 +148,7 @@ class dev00-deluge::server (
 			notify	=> Service['deluged'],
 			owner	=> 'deluge',
 			group	=> 'deluge',
-			mode	=> 0600,	
+			mode	=> 0500,	
 			require	=> File['/var/lib/deluge'];
 
 		"${download_location}":
